@@ -350,6 +350,25 @@ class program
             }
         }
 
+        //FILTRO DE SEGURIDAD :v
+
+        Console.WriteLine("\n=== FILTRO DE SEGURIDAD ===");
+        string[] codigos = { "SEC-01", "ERROR", "SEC-02", "EXIT", "SEC-03" };
+
+        foreach (string codigo in codigos)
+        {
+            if (codigo == "ERROR")
+            {
+                continue; // Ignora la iteración actual si encuentra "ERROR"
+            }
+            if (codigo == "EXIT")
+            {
+                break; // Detiene completamente el ciclo si encuentra "EXIT"
+            }
+
+            Console.WriteLine($"Procesando código: {codigo}");
+        }
+
 
     }
 }
