@@ -293,7 +293,48 @@ class program
 
         //GENERADOR DE TABLAS :v
 
+        Console.WriteLine("=== GENERADOR DE TABLAS DE MULTIPLICAR ===");
 
+        // Solicitar y validar el número base
+        int numero;
+        Console.Write("Ingrese el número base para la tabla: ");
+        while (!int.TryParse(Console.ReadLine(), out numero))
+        {
+            Console.Write("Entrada inválida. Ingrese un número entero: ");
+        }
+
+        // Solicitar y validar el rango inicial
+        int inicio;
+        Console.Write("Ingrese el valor inicial del rango: ");
+        while (!int.TryParse(Console.ReadLine(), out inicio))
+        {
+            Console.Write("Entrada inválida. Ingrese un número entero: ");
+        }
+
+        // Solicitar y validar el rango final
+        int fin;
+        Console.Write("Ingrese el valor final del rango: ");
+        while (!int.TryParse(Console.ReadLine(), out fin))
+        {
+            Console.Write("Entrada inválida. Ingrese un número entero: ");
+        }
+
+        // Asegurar que el inicio sea menor o igual al fin (en caso de ingresar al revés)
+        if (inicio > fin)
+        {
+            int temp = inicio;
+            inicio = fin;
+            fin = temp;
+        }
+
+        Console.WriteLine($"\n--- Tabla del {numero} (del {inicio} al {fin}) ---");
+
+        // Generar la tabla usando for
+        for (int i = inicio; i <= fin; i++)
+        {
+            int resultado = numero * i;
+            Console.WriteLine($"{numero} x {i} = {resultado}");
+        }
 
     }
 }
