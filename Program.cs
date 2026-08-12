@@ -72,7 +72,7 @@ class program
 
 
         //SISTEMA DE AUTORIZACION. :v
-        Console.WriteLine("=== SISTEMA DE AUTORIZACIÓN ===");
+        Console.WriteLine(" SISTEMA DE AUTORIZACIÓN ");
 
         // Validar edad
         int eda;
@@ -129,7 +129,7 @@ class program
 
         //CLASIFICADOR DE ALERTAS. :v
 
-        Console.WriteLine("=== CLASIFICADOR DE ALERTAS ===");
+        Console.WriteLine(" CLASIFICADOR DE ALERTAS ");
 
         // Validar que sea un número entero
         int nivelAlerta;
@@ -169,7 +169,7 @@ class program
 
         //PANEL DE CONTROL :v
 
-        Console.WriteLine("=== PANEL DE CONTROL ===");
+        Console.WriteLine(" PANEL DE CONTROL ");
         Console.WriteLine("1. Consultar estado");
         Console.WriteLine("2. Mostrar temperatura");
         Console.WriteLine("3. Mostrar operadores");
@@ -204,5 +204,50 @@ class program
                 Console.WriteLine("OPCIÓN NO VÁLIDA");
                 break;
         }
+
+
+        //LOGIN DEL SISTEMA :v
+
+        Console.WriteLine(" LOGIN DEL SISTEMA ");
+
+        // Credenciales predefinidas para la prueba
+        string usuarioCorrecto = "admin";
+        string claveCorrecta = "1234";
+
+        int intentosRestantes = 3;
+        bool accesoConcedido = false;
+
+        while (intentosRestantes > 0 && !accesoConcedido)
+        {
+            Console.Write("Usuario: ");
+            string usuario = Console.ReadLine();
+
+            Console.Write("Contraseña: ");
+            string clave = Console.ReadLine();
+
+            if (usuario == usuarioCorrecto && clave == claveCorrecta)
+            {
+                accesoConcedido = true;
+                Console.WriteLine("\nAcceso concedido al sistema.");
+            }
+            else
+            {
+                intentosRestantes--;
+                if (intentosRestantes > 0)
+                {
+                    Console.WriteLine($"Datos incorrectos. Intentos restantes: {intentosRestantes}\n");
+                }
+            }
+        }
+
+        if (!accesoConcedido)
+        {
+            Console.WriteLine("SISTEMA BLOQUEADO");
+        }
+
+
+        //MENU PERSISTENTE :v
+
+
     }
 }
