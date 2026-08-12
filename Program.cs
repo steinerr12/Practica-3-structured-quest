@@ -129,6 +129,44 @@ class program
 
         //CLASIFICADOR DE ALERTAS. :v
 
+        Console.WriteLine("=== CLASIFICADOR DE ALERTAS ===");
 
+        // Validar que sea un número entero
+        int nivelAlerta;
+        Console.Write("Ingrese el nivel de alerta (0 a 10): ");
+        while (!int.TryParse(Console.ReadLine(), out nivelAlerta))
+        {
+            Console.Write("Entrada inválida. Ingrese un número entero: ");
+        }
+
+        // Clasificación mediante estructuras if / else if / else
+        if (nivelAlerta == 0)
+        {
+            Console.WriteLine("NORMAL");
+        }
+        else if (nivelAlerta >= 1 && nivelAlerta <= 3)
+        {
+            Console.WriteLine("ADVERTENCIA");
+        }
+        else if (nivelAlerta >= 4 && nivelAlerta <= 6)
+        {
+            Console.WriteLine("PELIGRO");
+        }
+        else if (nivelAlerta >= 7 && nivelAlerta <= 9)
+        {
+            Console.WriteLine("CRÍTICO");
+        }
+        else if (nivelAlerta == 10)
+        {
+            Console.WriteLine("EMERGENCIA");
+        }
+        else
+        {
+            Console.WriteLine("NIVEL DE ALERTA INVÁLIDO");
+        }
+
+
+
+        //PANEL DE CONTROL :v
     }
 }
