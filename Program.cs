@@ -168,5 +168,41 @@ class program
 
 
         //PANEL DE CONTROL :v
+
+        Console.WriteLine("=== PANEL DE CONTROL ===");
+        Console.WriteLine("1. Consultar estado");
+        Console.WriteLine("2. Mostrar temperatura");
+        Console.WriteLine("3. Mostrar operadores");
+        Console.WriteLine("4. Reiniciar sistema");
+        Console.WriteLine("5. Salir");
+        Console.Write("Seleccione una opción (1-5): ");
+
+        int opcion;
+        if (!int.TryParse(Console.ReadLine(), out opcion))
+        {
+            opcion = -1;
+        }
+
+        switch (opcion)
+        {
+            case 1:
+                Console.WriteLine("Estado del sistema: Operativo");
+                break;
+            case 2:
+                Console.WriteLine("Temperatura actual: 24°C");
+                break;
+            case 3:
+                Console.WriteLine("Operadores activos: 3");
+                break;
+            case 4:
+                Console.WriteLine("Reiniciando sistema...");
+                break;
+            case 5:
+                Console.WriteLine("Saliendo del panel...");
+                break;
+            default:
+                Console.WriteLine("OPCIÓN NO VÁLIDA");
+                break;
+        }
     }
 }
