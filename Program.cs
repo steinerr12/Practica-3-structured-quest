@@ -45,5 +45,30 @@ class program
         Console.WriteLine($"Consumo Total: {consumoTotal}");
 
 
+
+
+        //Nivel de acceso.
+
+        Console.WriteLine(" NIVEL DE ACCESO ");
+
+        // Validar edad del operador
+        int edad;
+        Console.Write("Ingrese la edad del operador: ");
+        while (!int.TryParse(Console.ReadLine(), out edad) || edad < 0)
+        {
+            Console.Write("Entrada inválida. Ingrese una edad válida (número entero positivo): ");
+        }
+
+        // Evaluación de la regla de acceso mediante relacionales e IF
+        if (edad >= 18)
+        {
+            Console.WriteLine("Acceso permitido");
+        }
+        else
+        {
+            Console.WriteLine("Acceso restringido");
+        }
+
+
     }
 }
