@@ -248,6 +248,52 @@ class program
 
         //MENU PERSISTENTE :v
 
+        int opcion;
+
+        do
+        {
+            Console.WriteLine("\n=== MENÚ PERSISTENTE ===");
+            Console.WriteLine("1. Consultar estado del sistema");
+            Console.WriteLine("2. Ver consumo de energía");
+            Console.WriteLine("3. Ver lista de módulos");
+            Console.WriteLine("4. Calibrar sensores");
+            Console.WriteLine("5. Salir");
+            Console.Write("Seleccione una opción (1-5): ");
+
+            if (!int.TryParse(Console.ReadLine(), out opcion))
+            {
+                opcion = -1; // Valor para activar la opción no válida
+            }
+
+            switch (opcion)
+            {
+                case 1:
+                    Console.WriteLine("\n[ESTADO]: Todos los sistemas operando al 100%.");
+                    break;
+                case 2:
+                    Console.WriteLine("\n[CONSUMO]: Consumo actual en 45 kWh.");
+                    break;
+                case 3:
+                    Console.WriteLine("\n[MÓDULOS]: Módulo de decisiones, repetición y datos.");
+                    break;
+                case 4:
+                    Console.WriteLine("\n[CALIBRACIÓN]: Sensores calibrados con éxito.");
+                    break;
+                case 5:
+                    Console.WriteLine("\nSaliendo del programa... ¡Hasta luego!");
+                    break;
+                default:
+                    Console.WriteLine("\nOPCIÓN NO VÁLIDA. Intente nuevamente.");
+                    break;
+            }
+
+        } while (opcion != 5);
+
+
+
+        //GENERADOR DE TABLAS :v
+
+
 
     }
 }
