@@ -336,5 +336,20 @@ class program
             Console.WriteLine($"{numero} x {i} = {resultado}");
         }
 
+        //PROCESADOR DE OPERADORES :v
+
+        Console.WriteLine("\n=== PROCESADOR DE OPERADORES ===");
+        string[] operadores = { "Ana", "Luis", "Carlos", "Bea", "Alexander" };
+
+        Console.WriteLine("Operadores con más de cuatro caracteres:");
+        foreach (string op in operadores)
+        {
+            if (op.Length > 4)
+            {
+                Console.WriteLine($"- {op} ({op.Length} caracteres)");
+            }
+        }
+
+
     }
 }
