@@ -47,7 +47,7 @@ class program
 
 
 
-        //Nivel de acceso.
+        //Nivel de acceso. :v
 
         Console.WriteLine(" NIVEL DE ACCESO ");
 
@@ -68,6 +68,66 @@ class program
         {
             Console.WriteLine("Acceso restringido");
         }
+
+
+
+        //SISTEMA DE AUTORIZACION. :v
+        Console.WriteLine("=== SISTEMA DE AUTORIZACIÓN ===");
+
+        // Validar edad
+        int eda;
+        Console.Write("Ingrese la edad: ");
+        while (!int.TryParse(Console.ReadLine(), out edad) || edad < 0)
+        {
+            Console.Write("Entrada inválida. Ingrese una edad válida: ");
+        }
+
+        // Validar nivel de seguridad
+        int nivelSeguridad;
+        Console.Write("Ingrese el nivel de seguridad: ");
+        while (!int.TryParse(Console.ReadLine(), out nivelSeguridad) || nivelSeguridad < 0)
+        {
+            Console.Write("Entrada inválida. Ingrese un nivel de seguridad válido (entero positivo): ");
+        }
+
+        // Validar estado de credencial
+        bool credencialActiva = false;
+        bool entradaValida = false;
+
+        while (!entradaValida)
+        {
+            Console.Write("¿La credencial está activa? (s/n o true/false): ");
+            string entrada = Console.ReadLine()?.Trim().ToLower();
+
+            if (entrada == "s" || entrada == "true" || entrada == "1")
+            {
+                credencialActiva = true;
+                entradaValida = true;
+            }
+            else if (entrada == "n" || entrada == "false" || entrada == "0")
+            {
+                credencialActiva = false;
+                entradaValida = true;
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Intente de nuevo.");
+            }
+        }
+
+        // Evaluación de autorización con operadores lógicos (&&)
+        if (edad >= 18 && nivelSeguridad >= 3 && credencialActiva)
+        {
+            Console.WriteLine("\nAcceso Autorizado");
+        }
+        else
+        {
+            Console.WriteLine("\nAcceso Denegado");
+        }
+
+
+
+        //CLASIFICADOR DE ALERTAS. :v
 
 
     }
