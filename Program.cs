@@ -465,5 +465,29 @@ class program
         Console.WriteLine($"Número mayor entre ambos: {Math.Max(num1, num2)}");
         Console.WriteLine($"Número menor entre ambos: {Math.Min(num1, num2)}");
 
+
+        //GENERADOR DE CODIGOS :v
+
+        Console.WriteLine("\n=== GENERADOR DE CÓDIGOS ===");
+        Random random = new Random();
+        char continuarGen = 's';
+
+        while (continuarGen == 's')
+        {
+            int codigoSeguridad = random.Next(100000, 1000000);
+            Console.WriteLine($"Código de seguridad generado: {codigoSeguridad}");
+
+            Console.Write("¿Desea generar otro código? (s/n): ");
+            string respuestaGen = Console.ReadLine()?.Trim().ToLower();
+            if (respuestaGen == "s")
+            {
+                continuarGen = 's';
+            }
+            else
+            {
+                continuarGen = 'n';
+            }
+        }
+
     }
 }
