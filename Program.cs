@@ -421,6 +421,25 @@ class program
         Console.WriteLine($"Datos registrados -> Edad: {edadValidada}, Salario: {salarioValidado}, Año de nacimiento: {anioNacimiento}");
 
 
+        //RELOJ DEL SISTEMA :v
+
+        Console.WriteLine("\n=== RELOJ DEL SISTEMA ===");
+        DateTime fechaHoraActual = DateTime.Now;
+
+        Console.WriteLine($"Fecha y hora actual: {fechaHoraActual}");
+        Console.WriteLine($"Día: {fechaHoraActual.Day}");
+        Console.WriteLine($"Mes: {fechaHoraActual.Month}");
+        Console.WriteLine($"Año: {fechaHoraActual.Year}");
+
+        int anioNac;
+        Console.Write("Ingrese su año de nacimiento para calcular la edad: ");
+        while (!int.TryParse(Console.ReadLine(), out anioNac))
+        {
+            Console.Write("Entrada inválida. Ingrese un año válido: ");
+        }
+        int edadCalculada = fechaHoraActual.Year - anioNac;
+        Console.WriteLine($"Su edad aproximada es: {edadCalculada} años.");
+
 
     }
 }
