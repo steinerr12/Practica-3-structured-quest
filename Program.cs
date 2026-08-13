@@ -392,5 +392,35 @@ class program
             Console.WriteLine("Entrada vacía o inválida.");
         }
 
+
+        //VALIDADOR DE DATOS :v
+
+        Console.WriteLine("\n=== VALIDADOR DE DATOS ===");
+
+        int edadValidada;
+        Console.Write("Ingrese su edad: ");
+        while (!int.TryParse(Console.ReadLine(), out edadValidada))
+        {
+            Console.Write("Valor inválido. Ingrese un número entero para la edad: ");
+        }
+
+        double salarioValidado;
+        Console.Write("Ingrese su salario: ");
+        while (!double.TryParse(Console.ReadLine(), out salarioValidado))
+        {
+            Console.Write("Valor inválido. Ingrese un número válido para el salario: ");
+        }
+
+        int anioNacimiento;
+        Console.Write("Ingrese su año de nacimiento: ");
+        while (!int.TryParse(Console.ReadLine(), out anioNacimiento))
+        {
+            Console.Write("Valor inválido. Ingrese un año válido: ");
+        }
+
+        Console.WriteLine($"Datos registrados -> Edad: {edadValidada}, Salario: {salarioValidado}, Año de nacimiento: {anioNacimiento}");
+
+
+
     }
 }
