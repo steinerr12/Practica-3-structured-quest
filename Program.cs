@@ -507,5 +507,285 @@ class program
         Console.ResetColor();
         Console.WriteLine("Colores restablecidos. Fin del programa.");
 
+       
+// NIVEL FINAL: BOSS - OPERACIÓN CÓDIGO ROJO
+
+
+Console.Clear();
+Console.ForegroundColor = ConsoleColor.Red;
+
+Console.WriteLine("        OPERACIÓN CÓDIGO ROJO - CONTROL BASE      ");
+
+Console.ResetColor();
+
+Random random = new Random();
+int opcionPrincipal;
+
+do
+{
+    Console.WriteLine("\n--- MENU PRINCIPAL DE LA MISIÓN ---");
+    Console.WriteLine("1. Registro de Operadores (Validador + Analizador)");
+    Console.WriteLine("2. Control de Acceso y Seguridad (Login + Autorización)");
+    Console.WriteLine("3. Simulación de Recursos y Alertas");
+    Console.WriteLine("4. Generador de Códigos de Seguridad");
+    Console.WriteLine("5. Herramientas Matemáticas (Calculadora + Tablas)");
+    Console.WriteLine("6. Reloj del Sistema y Estadísticas");
+    Console.WriteLine("7. Salir del Sistema");
+    Console.WriteLine("--------------------------------------------------");
+    Console.Write("Seleccione una opción (1-7): ");
+
+    if (!int.TryParse(Console.ReadLine(), out opcionPrincipal))
+    {
+        opcionPrincipal = -1;
+    }
+
+    Console.Clear();
+
+    switch (opcionPrincipal)
+    {
+        case 1:
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== REGISTRO DE OPERADORES ===");
+            Console.ResetColor();
+
+            Console.Write("Ingrese nombre completo del operador: ");
+            string nombreIngresado = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(nombreIngresado))
+            {
+                string nombreLimpio = nombreIngresado.Trim();
+                Console.WriteLine($"\n[OPERADOR REGISTRADO]: {nombreLimpio.ToUpper()}");
+                Console.WriteLine($"Extensión del nombre: {nombreLimpio.Length} caracteres.");
+            }
+            else
+            {
+                Console.WriteLine("Error: Entrada vacía.");
+            }
+
+            int edadValidada;
+            Console.Write("Ingrese su edad: ");
+            while (!int.TryParse(Console.ReadLine(), out edadValidada) || edadValidada < 0)
+            {
+                Console.Write("Edad inválida. Ingrese un entero positivo: ");
+            }
+
+            double salarioValidado;
+            Console.Write("Ingrese su salario base: ");
+            while (!double.TryParse(Console.ReadLine(), out salarioValidado) || salarioValidado <= 0)
+            {
+                Console.Write("Salario inválido. Ingrese un monto válido: ");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\nFicha guardada con éxito -> Edad: {edadValidada} | Salario: ${salarioValidado}");
+            Console.ResetColor();
+            break;
+
+        case 2:
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("=== CONTROL DE ACCESO Y AUTORIZACIÓN ===");
+            Console.ResetColor();
+
+            string usuarioCorrecto = "admin";
+            string claveCorrecta = "1234";
+            int intentos = 3;
+            bool autenticado = false;
+
+            while (intentos > 0 && !autenticado)
+            {
+                Console.Write("Usuario: ");
+                string user = Console.ReadLine();
+                Console.Write("Contraseña: ");
+                string pass = Console.ReadLine();
+
+                if (user == usuarioCorrecto && pass == claveCorrecta)
+                {
+                    autenticado = true;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n[AUTENTICACIÓN EXITOSA]");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    intentos--;
+                    Console.WriteLine($"Credenciales erróneas. Intentos restantes: {intentos}\n");
+                }
+            }
+
+            if (autenticado)
+            {
+                int nivelSeguridad;
+                Console.Write("Ingrese su Nivel de Seguridad asignado: ");
+                while (!int.TryParse(Console.ReadLine(), out nivelSeguridad) || nivelSeguridad < 0)
+                {
+                    Console.Write("Nivel inválido. Reintente: ");
+                }
+
+                Console.Write("¿Credencial física activa? (s/n): ");
+                string cred = Console.ReadLine()?.Trim().ToLower();
+                bool activa = (cred == "s" || cred == "true" || cred == "1");
+
+                if (nivelSeguridad >= 3 && activa)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n[ACCESO OTORGADO]: Nivel de autorización verificado.");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n[ACCESO DENEGADO]: Permisos insuficientes o credencial inactiva.");
+                    Console.ResetColor();
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("SISTEMA BLOQUEADO POR INTENTOS FALLIDOS.");
+                Console.ResetColor();
+            }
+            break;
+
+        case 3:
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== SIMULACIÓN DE RECURSOS Y ALERTAS ===");
+            Console.ResetColor();
+
+            int trabajadores;
+            Console.Write("Cantidad de trabajadores: ");
+            while (!int.TryParse(Console.ReadLine(), out trabajadores) || trabajadores <= 0)
+            {
+                Console.Write("Número inválido. Reintente: ");
+            }
+
+            double horas, consumoPorHora;
+            Console.Write("Horas operativas: ");
+            while (!double.TryParse(Console.ReadLine(), out horas) || horas <= 0)
+            {
+                Console.Write("Horas inválidas. Reintente: ");
+            }
+
+            Console.Write("Consumo por hora (kWh): ");
+            while (!double.TryParse(Console.ReadLine(), out consumoPorHora) || consumoPorHora <= 0)
+            {
+                Console.Write("Consumo inválido. Reintente: ");
+            }
+
+            double totalConsumo = trabajadores * horas * consumoPorHora;
+            Console.WriteLine($"\nConsumo Total Calculado: {totalConsumo} kWh");
+
+            int nivelAlerta;
+            Console.Write("\nIngrese nivel de alerta reportado (0 a 10): ");
+            while (!int.TryParse(Console.ReadLine(), out nivelAlerta))
+            {
+                Console.Write("Ingrese un número entero (0-10): ");
+            }
+
+            Console.Write("Estado de Alerta: ");
+            if (nivelAlerta == 0) Console.WriteLine("NORMAL");
+            else if (nivelAlerta >= 1 && nivelAlerta <= 3) Console.WriteLine("ADVERTENCIA");
+            else if (nivelAlerta >= 4 && nivelAlerta <= 6) Console.WriteLine("PELIGRO");
+            else if (nivelAlerta >= 7 && nivelAlerta <= 9) Console.WriteLine("CRÍTICO");
+            else if (nivelAlerta == 10) Console.WriteLine("EMERGENCIA");
+            else Console.WriteLine("NIVEL INVÁLIDO");
+            break;
+
+        case 4:
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("=== GENERADOR DE CÓDIGOS DE SEGURIDAD ===");
+            Console.ResetColor();
+
+            char genOtro = 's';
+            while (genOtro == 's')
+            {
+                int token = random.Next(100000, 1000000);
+                Console.WriteLine($"\nTOKEN GENERADO: SEC-{token}");
+
+                Console.Write("¿Generar otro token? (s/n): ");
+                string resp = Console.ReadLine()?.Trim().ToLower();
+                genOtro = (resp == "s") ? 's' : 'n';
+            }
+            break;
+
+        case 5:
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== HERRAMIENTAS MATEMÁTICAS Y TABLAS ===");
+            Console.ResetColor();
+
+            int baseTabla, inicio, fin;
+            Console.Write("Número base para la tabla: ");
+            while (!int.TryParse(Console.ReadLine(), out baseTabla))
+            {
+                Console.Write("Entrada inválida: ");
+            }
+
+            Console.Write("Inicio del rango: ");
+            while (!int.TryParse(Console.ReadLine(), out inicio))
+            {
+                Console.Write("Entrada inválida: ");
+            }
+
+            Console.Write("Fin del rango: ");
+            while (!int.TryParse(Console.ReadLine(), out fin))
+            {
+                Console.Write("Entrada inválida: ");
+            }
+
+            if (inicio > fin)
+            {
+                int temp = inicio;
+                inicio = fin;
+                fin = temp;
+            }
+
+            Console.WriteLine($"\n--- Tabla del {baseTabla} ({inicio} al {fin}) ---");
+            for (int i = inicio; i <= fin; i++)
+            {
+                Console.WriteLine($"{baseTabla} x {i} = {baseTabla * i}");
+            }
+            break;
+
+        case 6:
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== RELOJ Y ESTADÍSTICAS DEL SISTEMA ===");
+            Console.ResetColor();
+
+            DateTime ahora = DateTime.Now;
+            Console.WriteLine($"Fecha y Hora Actual: {ahora}");
+            Console.WriteLine($"Día: {ahora.Day} | Mes: {ahora.Month} | Año: {ahora.Year}");
+
+            string[] equipo = { "Ana", "Luis", "Carlos", "Bea", "Alexander" };
+            Console.WriteLine("\n[OPERADORES REGISTRADOS EN SISTEMA (Filtro > 4 caracteres)]:");
+            foreach (string op in equipo)
+            {
+                if (op.Length > 4)
+                {
+                    Console.WriteLine($"- {op} ({op.Length} letras)");
+                }
+            }
+            break;
+
+        case 7:
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nCerrando Operación Código Rojo... ¡Misión Cumplida!");
+            Console.ResetColor();
+            break;
+
+        default:
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Opción no válida.");
+            Console.ResetColor();
+            break;
+    }
+
+    if (opcionPrincipal != 7)
+    {
+        Console.WriteLine("\nPresione cualquier tecla para volver al menú...");
+        Console.ReadKey();
+        Console.Clear();
+    }
+
+} while (opcionPrincipal != 7);
+
     }
 }
