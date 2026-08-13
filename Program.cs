@@ -369,6 +369,28 @@ class program
             Console.WriteLine($"Procesando código: {codigo}");
         }
 
+        //ANALIZADOR DE NOMBRES :v
+
+        Console.WriteLine("\n=== ANALIZADOR DE NOMBRES ===");
+        Console.Write("Ingrese un nombre completo: ");
+        string nombreIngresado = Console.ReadLine();
+
+        if (!string.IsNullOrWhiteSpace(nombreIngresado))
+        {
+            string nombreLimpio = nombreIngresado.Trim();
+            int cantidadCaracteres = nombreLimpio.Length;
+            string enMayusculas = nombreLimpio.ToUpper();
+            string enMinusculas = nombreLimpio.ToLower();
+
+            Console.WriteLine($"Nombre limpio: {nombreLimpio}");
+            Console.WriteLine($"Cantidad de caracteres: {cantidadCaracteres}");
+            Console.WriteLine($"En mayúsculas: {enMayusculas}");
+            Console.WriteLine($"En minúsculas: {enMinusculas}");
+        }
+        else
+        {
+            Console.WriteLine("Entrada vacía o inválida.");
+        }
 
     }
 }
