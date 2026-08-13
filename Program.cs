@@ -441,5 +441,29 @@ class program
         Console.WriteLine($"Su edad aproximada es: {edadCalculada} años.");
 
 
+        //SIMULADOR MATEMATICO :v
+
+        Console.WriteLine("\n=== SIMULADOR MATEMÁTICO ===");
+        double num1, num2;
+
+        Console.Write("Ingrese el primer número: ");
+        while (!double.TryParse(Console.ReadLine(), out num1))
+        {
+            Console.Write("Entrada inválida. Ingrese un número: ");
+        }
+
+        Console.Write("Ingrese el segundo número: ");
+        while (!double.TryParse(Console.ReadLine(), out num2))
+        {
+            Console.Write("Entrada inválida. Ingrese un número: ");
+        }
+
+        Console.WriteLine($"Potencia ({num1}^{num2}): {Math.Pow(num1, num2)}");
+        Console.WriteLine($"Raíz cuadrada del primer número: {Math.Sqrt(Math.Abs(num1))}");
+        Console.WriteLine($"Valor absoluto del primer número: {Math.Abs(num1)}");
+        Console.WriteLine($"Redondeo del primer número: {Math.Round(num1)}");
+        Console.WriteLine($"Número mayor entre ambos: {Math.Max(num1, num2)}");
+        Console.WriteLine($"Número menor entre ambos: {Math.Min(num1, num2)}");
+
     }
 }
