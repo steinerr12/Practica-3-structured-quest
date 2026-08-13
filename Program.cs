@@ -489,5 +489,23 @@ class program
             }
         }
 
+        //CONSOLA DE CONTROL :v
+
+        Console.WriteLine("\n=== CONSOLA DE CONTROL ===");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("[ESTADO]: Operativo (Color Verde)");
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("[ADVERTENCIA]: Nivel de energía bajo (Color Amarillo)");
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("[ERROR]: Falla crítica en el sistema (Color Rojo)");
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("[INFORMACIÓN]: Transfiriendo datos... (Color Cian)");
+
+        Console.ResetColor();
+        Console.WriteLine("Colores restablecidos. Fin del programa.");
+
     }
 }
